@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body>
+    <!-- top level container -->
+    <div id="miandiv">
+        <!-- password Generator body -->
+        <div class="wrapper">
+            
+            <h2 id="main">PASSWORD GENERATOR</h2>
+            <div class="input">
+                <input id="inp1" readonly>
+                <button id="copy-btn"><i class="fa-regular fa-copy"></i></button>
+            </div>
+            <div class="length">
+                <div class="lengthcal">
+                    <h4>Password Length</h4>
+                    <p id="res">0</p>
+                </div>
+                <div class="range">
+                        <input type="range" id="inp2" min="0" max="20" value="0">
+                </div>
+            </div>
+            <div class="box">
+                <form>
+                    <input type="checkbox" id="one" name="Uppercase">
+                    <label for="one">Include Uppercase Letters</label><br/>
+                    <input type="checkbox" id="two" name="Uppercase">
+                    <label for="two">Include Lowercase Letters</label><br/>
+                    <input type="checkbox" id="three" name="Symbols">
+                    <label for="three">Include Symbols</label><br/>
+                    <input type="checkbox" id="four" name="Numbers">
+                    <label for="four">Include Numbers</label><br/>
+                </form>
+            </div>
+            <div class="STRENGTH">
+                <h2>STRENGTH</h2>
+                <div id="dot"></div>
+            </div>
+            <button id="genrate" onclick="gen()">GG</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
