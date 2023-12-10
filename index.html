@@ -9,41 +9,61 @@
 </head>
 <body>
     <!-- top level container -->
-    <div id="miandiv">
+    <div class="container">
+       
         <!-- password Generator body -->
-        <div class="wrapper">
+        <div class="body">
+           
+            <!-- Heading -->
+            <h2 class="heading">PASSWORD GENERATOR</h2>
             
-            <h2 id="main">PASSWORD GENERATOR</h2>
-            <div class="input">
-                <input id="inp1" readonly>
-                <button id="copy-btn"><i class="fa-regular fa-copy"></i></button>
+            <!-- Input field and copy button -->
+            <div class="display" >
+                <input class="display-field" data-display>
+                <button class="copy-btn"><i class="fa-regular fa-copy"></i></button>
             </div>
-            <div class="length">
+            
+            <!-- Password length -->
+            <div class="pwd-length">
                 <div class="lengthcal">
                     <h4>Password Length</h4>
-                    <p id="res">0</p>
+                    <span class="length-display">0</span>
                 </div>
-                <div class="range">
-                        <input type="range" id="inp2" min="0" max="20" value="0">
+                
+                <!-- Slider -->
+                <div class="slider">
+                        <input type="range" class="slider-input" min="0" max="20" value="4">
                 </div>
             </div>
-            <div class="box">
-                <form>
-                    <input type="checkbox" id="one" name="Uppercase">
-                    <label for="one">Include Uppercase Letters</label><br/>
-                    <input type="checkbox" id="two" name="Uppercase">
-                    <label for="two">Include Lowercase Letters</label><br/>
-                    <input type="checkbox" id="three" name="Symbols">
-                    <label for="three">Include Symbols</label><br/>
-                    <input type="checkbox" id="four" name="Numbers">
-                    <label for="four">Include Numbers</label><br/>
-                </form>
+            
+            <!-- CheckBoxes -->
+            <div class="checkbox">
+                <div>
+                    <input type="checkbox" id="uppercase" name="Uppercase">
+                    <label for="uppercase">Include Uppercase Letters</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="lowercase" name="Uppercase">
+                    <label for="lowercase">Include Lowercase Letters</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="symbols" name="Symbols">
+                    <label for="symbols">Include Symbols</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="numbers" name="Numbers">
+                    <label for="numbers">Include Numbers</label>
+                </div>
             </div>
-            <div class="STRENGTH">
+
+            <!-- Strength calc -->
+            <div class="pwd-strength">
                 <h2>STRENGTH</h2>
-                <div id="dot"></div>
+                <div class="dot"></div>
             </div>
-            <button id="genrate" onclick="gen()">GG</button>
+
+            <!-- Generate button -->
+            <button class="genrate-btn" onclick="gen()">GG</button>
         </div>
     </div>
     <script src="script.js"></script>

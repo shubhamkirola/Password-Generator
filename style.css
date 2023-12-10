@@ -7,13 +7,13 @@ html, body{
     height: 100%;
     width: 100%;
 }
-#miandiv{
+.container{
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.wrapper{
+.body{
     height: 330px;
     width: 300px;
     background-color: rgba(0, 0, 0, 0.5);
@@ -28,7 +28,7 @@ html, body{
     width: 270px;
     font-size: 22px;
 }
-.input{
+.display{
     display: flex;
     background-color: brown;
     height: 40px;
@@ -37,10 +37,15 @@ html, body{
     justify-content: center;
     border-radius: 3%;
 }
-#copy-btn{
-    height: 20px;
+.display-field{
+    width: 259px;
+    height: 30px;
 }
-.length{
+.copy-btn{
+    height: 30px;
+    width: 25px;
+}
+.pwd-length{
     display: flex;
     flex-direction: column;
     background-color: blueviolet;
@@ -56,23 +61,22 @@ html, body{
     width: 90%;
     justify-content: space-between;
 }
-.range{
+.slider{
     width: 90%;
 }
-#inp2{
+.slider-input{
     width: 100%;
 }
-.box{
+.checkbox{
     width: 290px;
     display: flex;
     flex-direction: column;
     background-color: brown;
     height: 100px;
-    align-items: center;
     justify-content: center;
     border-radius: 4%;
 }
-.STRENGTH{
+.pwd-strength{
     background-color: blueviolet;
     padding: 0 8px 0 8px;
     width: 290px;
@@ -82,17 +86,15 @@ html, body{
     justify-content: space-between;
     border-radius: 3%;
 }
-#dot{
+.dot{
     width: 20px;
     height: 20px;
     border-radius: 50%;
     background-color: black;
-    box-shadow: 0 0 25px 5px whitesmoke;
+    box-shadow: 0 0 25px 5px rgb(0, 0, 0);
 }
-#inp1{
-    width: 235px;
-}
-#genrate{
+
+.genrate-btn{
     width: 290px;
     height: 40px;
     border-radius: 3%;
