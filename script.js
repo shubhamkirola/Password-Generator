@@ -1,6 +1,7 @@
 const display = document.querySelector("[data-display]");
 // have selected the above element using custom attribute ("[]")
 const copyBtn = document.querySelector(".copy-btn");
+const copyMsg = document.querySelector("[data-copiedText]");
 const pwdlength = document.querySelector(".length-display");
 const slider = document.querySelector(".slider-input");
 const uppercaseCheck = document.querySelector("#uppercase");
@@ -13,7 +14,6 @@ const allCheckBox = document.querySelectorAll("input[type=checkbox]");
 const symbols = '!@#$%^&*()_+=-/.,><[]'
 
 let password = ""; 
-let passwordLength = 10;
 let checkCount = "";
 
 handleSlider();
@@ -21,23 +21,18 @@ handleSlider();
 copyBtn.addEventListener('click', () => {            
     if(display.value != ""){
     navigator.clipboard.writeText(display.value);
+    copyText();
     }
 });
 
-// PassWord length calculator
-
-// pwdlength.innerHTML = slider.value; this val need to mentioned in HTML CODE.
-// slider.oninput = function() {
-//     pwdlength.innerHTML = slider.value;
-// };
-// can also be done with this method but we need optimal method
-
 function handleSlider() {
-    slider.value = passwordLength;
     pwdlength.innerHTML = slider.value;
-}
+    slider.oninput = function() {
+            pwdlength.innerHTML = slider.value;
+        };
+};
 
-function strengthIndicator () {
+function strengthIndicator (color) {
     pwdstrength.style.backgroundColor = color;
     // shadow correction 
 }
@@ -63,3 +58,71 @@ function getRandomSymbol() {
     return String.charAt[rSymbol];
 }
 
+function calcStrength() {
+    let hasUpper = false;
+    let hasLower = false;
+    let hasNum = false;
+    let hasSym = false;
+
+    // if checkbox is checked then change value of has... to true
+    if(uppercaseCheck.checked){
+        hasUpper = true;
+    }
+    if(lowercaseCheck.checked){
+        hasLower = true;
+    }
+    if(symbolsCheck.checked){
+        hasNum = true;
+    }
+    if(numbersCheck.checked){
+        hasSym = true;
+    }
+
+    // conditions according to which we'll set color of strength
+    if(hasUpper && hasLower && hasNum && hasSym && passwordLength >= 8){
+        strengthIndicator("#0f0");
+    }
+    else if(hasUpper && hasLower && hasNum && passwordLength >= 8){
+        strengthIndicator("#ff0");
+    }
+    else {
+        strengthIndicator("#f00");
+    }
+};
+
+async function copyText () {
+    try {
+        await navigator.clipboard.writeText(display.value);
+        copyMsg.innerHTML = "Copied";
+    } catch (error) {
+        copyMsg.innerHTML = "Failed";
+    }
+};
+copyMsg.classList.add("active");
+
+setTimeout(() => {
+    copyMsg.classList.remove("active")
+},2000);
+
+function checkBoxChange () {
+    checkCount = 0;
+    allCheckBox.forEach((checkbox) => {
+        if (checkbox.checked){
+            checkCount++;
+        }
+    })
+}
+
+// condition if user set password length less than checkcount
+if(pwdlength < checkCount){
+    pwdlength = checkCount;
+    handleSlider();
+}
+
+allCheckBox.forEach((checkbox) => {
+    checkbox.addEventListener('change', checkBoxChange())
+})
+
+mainBtn.addEventListener('click', () => {
+    checkBoxChange();
+})
