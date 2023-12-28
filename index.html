@@ -19,8 +19,11 @@
             
             <!-- Input field and copy button -->
             <div class="display" >
-                <input class="display-field" data-display>
-                <button class="copy-btn"><i class="fa-regular fa-copy"></i></button>
+                <input class="display-field" data-display readonly>
+                <button class="copy-btn">
+                    <span data-copiedText></span>
+                    <i class="fa-regular fa-copy"></i>
+                </button>
             </div>
             
             <!-- Password length -->
@@ -63,7 +66,7 @@
             </div>
 
             <!-- Generate button -->
-            <button class="genrate-btn" onclick="gen()">GG</button>
+            <button class="genrate-btn">GG</button>
         </div>
     </div>
     <script src="script.js"></script>
